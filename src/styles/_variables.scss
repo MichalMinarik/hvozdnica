@@ -1,0 +1,15 @@
+
+$bg0: #13214e;
+$bg1: #15447a;
+
+$text: #fff;
+$primary: #88befa;
+$accent: #ffcc2f;
+
+@mixin heading {
+	font-family: 'Cinzel', cursive;
+}
+
+@mixin wrapper {
+	max-width: 65em; margin: 0 auto; width: 100%; box-sizing: border-box;
+}

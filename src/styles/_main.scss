@@ -1,0 +1,193 @@
+
+/* BASIC
+*****************************************************************************************/
+
+::-moz-selection{ background: $primary; color: #fff; text-shadow: none; }
+::selection { background: $primary; color: #fff; text-shadow: none; }
+a:link { -webkit-tap-highlight-color: $primary; }
+
+html {height: 100%;}
+body {
+	font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	color: $text;
+	background: $bg0;
+	position: relative;
+	font-size: 15px;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	min-height: 100%;
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: min-content min-content 1fr min-content;
+}
+
+*:focus {outline: none !important;}
+a {text-decoration: none;
+	&,
+	&:hover,
+	&:active,
+	&:visited {color: $primary;}
+	&:hover {text-decoration: underline;}
+}
+
+input, textarea, select {font-family: 'Roboto Mono', monotype;}
+
+/* HEADER
+*****************************************************************************************/
+
+#header {
+	background: $bg1;
+	border-bottom: 2px solid #fff;
+	position: sticky; top: 0;
+
+	.wrapper {
+		@include wrapper();
+		padding: 0 1em;
+		display: flex; flex-flow: row wrap; align-items: flex-start;
+	}
+
+	.links {flex: 1 0 20em; margin: 1em; font-size: 14px;
+		display: flex; flex-flow: row wrap; align-items: center;
+		justify-content: flex-end;
+		li {line-height: 1.1;
+			&:first-child {border: 0;}
+			border-left: 1px solid rgba($primary, .3); margin: .5em 0;
+			a {display: block; padding: 0 .5em; text-decoration: underline;
+				&.accent {color: $accent;}
+				&.active {color: $text; text-decoration: none;}
+				&:hover {text-decoration: none;}
+			}
+		}
+	}
+
+	.menu {
+		background: $primary; color: $bg0;
+		min-height: 1.5em;
+	}
+
+	.logo {
+		display: flex; flex-flow: row nowrap; margin: 1em 0 0;
+		img {height: 6em; display: block; margin-right: 1em;
+			margin-bottom: -.5em;
+		}
+		h1 {font-size: 2.7em;
+			@include heading(); font-weight: 500;
+			line-height: 1.1;
+		}
+		p {color: $primary; font-size: 1.17em;
+			@include heading(); font-weight: 500;
+			line-height: 1.1;
+		}
+	}
+}
+
+/* FOOTER
+*****************************************************************************************/
+
+#footer {
+	background: $bg1;
+
+	.wrapper {
+		@include wrapper(); padding: 1em;
+		display: flex; flex-flow: row wrap;
+		> * {flex: 0 1 20em;}
+		.space {flex: 1;}
+	}
+
+	p {margin: .5em 0;}
+
+	.links {
+		li {margin: .5em 0;}
+		a {text-decoration: underline;
+			&:hover {text-decoration: none;}
+		}
+	}
+
+}
+
+/* FOOTER
+*****************************************************************************************/
+
+.title {
+	padding: 2em 1em;
+
+	.wrapper {@include wrapper;}
+	img {height: 6em; float: right; margin: 1em 0;}
+
+	h1 {
+		@include heading(); font-size: 2.7em; font-weight: 500;
+		line-height: 1.1; color: $accent;
+	}
+	h2 {
+		@include heading(); margin-left: 2em;
+		font-size: 2em; font-weight: 500; line-height: 1.1;
+	}
+}
+
+/* MAIN
+*****************************************************************************************/
+
+#sidebar {
+
+	margin-right: 2em;
+
+	ul {
+		li {margin: 1em 0; min-height: 1em;
+			a {
+				color: $text; transition: .2s all ease-in-out;
+				display: block; padding-right: 1em;
+				small {display: block; color: $primary;}
+				&:hover {text-decoration: none;
+					padding-left: 1em; padding-right: 0;
+					box-shadow: inset 3px 0 0 $primary;
+				}
+			}
+			&.active a {
+				padding-left: 1em; padding-right: 0;
+				box-shadow: inset 3px 0 0 $accent;
+			}
+		}
+	}
+}
+
+#main {
+
+	@include wrapper;
+	display: flex; flex-flow: row wrap;
+	padding: 1px 0 5em;
+
+	> * {flex: 4 1 38em;}
+	> #sidebar {flex: 1 0 12em; padding: 2em 1em;}
+
+	> section {
+		padding: 0 1em;
+		img {border: 2px solid #fff; max-width: 100%; box-sizing: border-box;}
+
+		h1 {@include heading; font-size: 2.7em; font-weight: 500;}
+		h2 {@include heading; font-size: 2em; font-weight: 500;}
+		h3 {@include heading; font-size: 1.5em; font-weight: 500;}
+		h4 {@include heading; font-size: 1.3em; font-weight: 500;}
+		h5 {@include heading; font-size: 1.2em; font-weight: 500;}
+		h6 {@include heading; font-size: 1.1em; font-weight: 500;}
+
+		h1, h2, h3, h4, h5, h6 {margin: 2rem 0 1rem;}
+
+		p, ul, ol {margin: 1rem 0; color: $primary;}
+		li {margin: .5rem 0;}
+
+		ul {
+			li {list-style: square; margin-left: 2em;}
+		}
+
+		strong {font-weight: normal; color: $accent;}
+		em {color: $text; font-style: normal;}
+
+		a {text-decoration: underline; color: $text;
+			&:hover {text-decoration: none;}
+		}
+	}
+
+
+}
+

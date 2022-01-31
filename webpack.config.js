@@ -33,7 +33,7 @@ module.exports = env => ({
 	},
 
 	output: {
-		path: resolve('dist'),
+		path: resolve('docs'),
 		filename: '[name].[chunkhash].js',
 	},
 
